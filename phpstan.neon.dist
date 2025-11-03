@@ -1,0 +1,10 @@
+includes:
+  - phpstan-baseline.neon
+
+parameters:
+  level: 0
+  paths:
+    - src
+  inferPrivatePropertyTypeFromConstructor: true
+  checkExplicitMixed: false
+  ignoreErrors: [] # Ignore errors related to missing WordPress functions
