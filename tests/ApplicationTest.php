@@ -1,8 +1,8 @@
 <?php
 
-namespace ClubDeuce\WpmvcRedux\Tests;
+namespace Clubdeuce\Wpmvc_Redux\Tests;
 
-use ClubDeuce\WpmvcRedux\Application;
+use Clubdeuce\Wpmvc_Redux\Application;
 use PHPUnit\Framework\TestCase;
 
 /**

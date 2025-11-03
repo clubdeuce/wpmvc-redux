@@ -17,7 +17,7 @@ composer require clubdeuce/wpmvc-redux
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-use ClubDeuce\WpmvcRedux\Application;
+use Clubdeuce\Wpmvc_Redux\Application;
 
 $app = new Application();
 echo $app->getVersion();
@@ -41,9 +41,9 @@ composer install
 
 This library follows PSR-4 autoloading standards:
 
-- Namespace: `ClubDeuce\WpmvcRedux`
+- Namespace: `Clubdeuce\Wpmvc_Redux`
 - Source directory: `src/`
-- Test namespace: `ClubDeuce\WpmvcRedux\Tests`
+- Test namespace: `Clubdeuce\Wpmvc_Redux\Tests`
 - Test directory: `tests/`
 
 ## License

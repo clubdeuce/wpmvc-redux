@@ -6,7 +6,7 @@
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-use ClubDeuce\WpmvcRedux\Application;
+use Clubdeuce\Wpmvc_Redux\Application;
 
 // Create an instance of the Application class
 $app = new Application();

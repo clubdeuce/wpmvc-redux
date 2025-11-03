@@ -1,28 +1,28 @@
 {
     "name": "clubdeuce/wpmvc-redux",
-    "description": "A base library for WordPress application development",
+    "description": "An MVC library for WordPress application development",
     "type": "library",
     "license": "MIT",
     "authors": [
         {
             "name": "Daryl",
-            "email": "clubdeuce@users.noreply.github.com"
+            "email": "daryl@clubdeuce.net"
         }
     ],
     "require": {
-        "php": ">=7.4"
+        "php": ">=8.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.0"
     },
     "autoload": {
         "psr-4": {
-            "ClubDeuce\\WpmvcRedux\\": "src/"
+            "Clubdeuce\\Wpmvc_Redux\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "ClubDeuce\\WpmvcRedux\\Tests\\": "tests/"
+            "Clubdeuce\\Wpmvc_Redux\\Tests\\": "tests/"
         }
     },
     "minimum-stability": "stable",
