@@ -7,4 +7,13 @@ parameters:
     - src
   inferPrivatePropertyTypeFromConstructor: true
   checkExplicitMixed: false
-  ignoreErrors: [] # Ignore errors related to missing WordPress functions
+  ignoreErrors: # Ignore errors related to missing WordPress functions
+    - messages:
+      - '#Function add|remove_action not found\.#'
+      - '#Function register_post_type not found\.#'
+      identifier: function.notFound
+    - messages:
+      - '#unknown class WP_Post#'
+      - '#invalid type WP_Post#'
+      - '#invalid return type WP_Post#'
+      identifier: class.notFound
