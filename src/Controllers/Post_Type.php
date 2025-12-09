@@ -6,12 +6,12 @@ use Clubdeuce\Wpmvc_Redux\Base\Base;
 
 class Post_Type extends Base {
 
-	protected string  $slug;
+	protected string  $slug = '';
 	protected array   $arguments = array();
 
 	public function __construct( array $args = array() ) {
 
-		$this->set_state( $args );
+        $this->set_state( $args );
 		$this->register_actions();
 		
 	}
