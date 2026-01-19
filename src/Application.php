@@ -1,12 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Clubdeuce\Wpmvc_Redux;
 
 use Clubdeuce\Wpmvc_Redux\Base\Base;
-use DI\Container;
+use Psr\Container\ContainerInterface;
 
 /**
- * Base class for the WP MVC Redux library
+ * Application class for the WP MVC Redux library
+ * @package Clubdeuce\Wpmvc_Redux
  */
 class Application extends Base
 {
@@ -15,8 +18,11 @@ class Application extends Base
      */
     const string VERSION = '1.0.0';
 
-    public function __construct(protected Container $container)
+    public function __construct()
     {
+		if ( method_exists($this, 'add_actions') ) {
+			$this->add_actions();
+		}
     }
 
     /**
@@ -29,16 +35,9 @@ class Application extends Base
         return self::VERSION;
     }
 
-    public function container(): Container
+    public function getContainer(): Container
     {
         return $this->container;
-    }
-
-    public function setContainer(Container $container): self
-    {
-        $this->container  = $container;
-
-        return $this;
     }
 
 }
