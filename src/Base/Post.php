@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Clubdeuce\Wpmvc_Redux\Base;
 
 /**
@@ -20,10 +23,73 @@ class Post extends Base {
 
 	}
 
-    public function ID(): int {
+	public function ID(): int {
 
-        return $this->post->ID;
+		return $this->post->ID;
+
+	}
+
+	/**
+	 * Returns the subdirectory (within the theme) where templates are located.
+	 * Respects WPLIB_TEMPLATES_SUBDIR if defined for backwards compatibility.
+	 */
+	protected function templates_subdir(): string {
+
+		return defined( 'WPLIB_TEMPLATES_SUBDIR' ) ? WPLIB_TEMPLATES_SUBDIR : 'templates';
+
+	}
+
+	/**
+	 * Returns the module/plugin root directory for template lookup, or null to skip.
+	 * Override in subclasses to enable plugin-level template fallback.
+	 */
+	protected function module_dir(): ?string {
+
+		return null;
+
+	}
+
+	/**
+	 * Locate and render a template, with variables extracted into scope.
+	 * Lookup order: child theme → parent theme → module dir (if set).
+	 *
+	 * @param string $template_slug Template filename without leading slash; .php is added if omitted.
+	 * @param array  $template_vars Variables to extract into the template scope.
+	 */
+	public function the_template( string $template_slug, array $template_vars = [] ): void {
+
+		$_filename = preg_replace( '#(.+)(\.php)?$#', '$1.php', ltrim( $template_slug, '/' ) );
+
+		$locations = array_filter( [
+			get_stylesheet_directory() . '/' . $this->templates_subdir() . '/' . $_filename,
+			get_template_directory()   . '/' . $this->templates_subdir() . '/' . $_filename,
+			$this->module_dir() ? $this->module_dir() . '/templates/' . $_filename : null,
+		] );
+
+		$template_file = null;
+
+		foreach ( $locations as $location ) {
+			if ( file_exists( $location ) ) {
+				$template_file = $location;
+				break;
+			}
+		}
+
+		if ( ! $template_file ) {
+			return;
+		}
+
+		$item = $this;
+		extract( $template_vars, EXTR_PREFIX_SAME, '_' );
+		unset( $template_slug, $template_vars, $_filename, $locations, $location );
+
+		require $template_file;
+
+	}
+
+    public function the_title(): void {
+
+        echo esc_html( get_the_title( $this->ID() ) );
 
     }
-
 }
