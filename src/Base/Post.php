@@ -20,4 +20,10 @@ class Post extends Base {
 
 	}
 
+    public function ID(): int {
+
+        return $this->post->ID;
+
+    }
+
 }
