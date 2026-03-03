@@ -6,7 +6,8 @@ use Clubdeuce\Wpmvc_Redux\Base\Base;
 
 class Post_Type extends Base {
 
-	protected string  $slug = '';
+	const POST_TYPE = null;
+
 	protected array   $arguments = array();
 
 	public function __construct( array $args = array() ) {
@@ -47,7 +48,7 @@ class Post_Type extends Base {
 	 */
 	public function register_post_type(): void {
 
-		register_post_type( $this->slug(), $this->arguments() );
+		register_post_type( static::POST_TYPE, $this->arguments() );
 		
 	}
 
