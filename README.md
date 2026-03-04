@@ -1,5 +1,8 @@
 # wpmvc-redux
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/clubdeuce/wpmvc-redux/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/clubdeuce/wpmvc-redux/?branch=main)
+[![Build Status](https://scrutinizer-ci.com/g/clubdeuce/wpmvc-redux/badges/build.png?b=main)](https://scrutinizer-ci.com/g/clubdeuce/wpmvc-redux/build-status/main)
+
 A base library for WordPress application development following PSR-4 autoloading standards.
 
 ## Installation
