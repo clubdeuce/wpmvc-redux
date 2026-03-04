@@ -7,13 +7,15 @@ namespace Clubdeuce\Wpmvc_Redux\Base;
 /**
  * Post base model.
  */
-class Post extends Base {
+class Post extends Model {
 
 	protected \WP_Post $post;
 
-	public function __construct( \WP_Post $post ) {
+	public function __construct( \WP_Post $post, array $args = [] ) {
 
 		$this->post = $post;
+
+        $this->set_state( $args );
 
 	}
 
@@ -90,6 +92,12 @@ class Post extends Base {
     public function the_title(): void {
 
         echo esc_html( get_the_title( $this->ID() ) );
+
+    }
+
+    public function get_content_html(): string {
+
+        return apply_filters( 'the_content', $this->post->post_content );
 
     }
 }
