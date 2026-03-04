@@ -6,9 +6,9 @@ namespace Clubdeuce\Wpmvc_Redux\Controllers;
 
 use Clubdeuce\Wpmvc_Redux\Base\Base;
 
-class Taxonomy extends Base {
+abstract class Taxonomy extends Base {
 
-	const TAXONOMY = null;
+	const ?string TAXONOMY = null;
 
 	protected array $object_type = array();
 
@@ -16,7 +16,7 @@ class Taxonomy extends Base {
 
 	public function __construct( array $args = array() ) {
 
-		$this->set_state( $args );
+		parent::__construct( $args );
 		$this->register_actions();
 
 	}
@@ -36,6 +36,12 @@ class Taxonomy extends Base {
 	public function arguments(): array {
 
 		return array_merge( [], $this->arguments );
+
+	}
+
+	public function slug(): string {
+
+		return static::TAXONOMY ?? '';
 
 	}
 

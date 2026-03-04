@@ -6,15 +6,15 @@ namespace Clubdeuce\Wpmvc_Redux\Controllers;
 
 use Clubdeuce\Wpmvc_Redux\Base\Base;
 
-class Post_Type extends Base {
+abstract class Post_Type extends Base {
 
-	const  POST_TYPE = null;
+	const ?string POST_TYPE = null;
 
 	protected array   $arguments = array();
 
 	public function __construct( array $args = array() ) {
 
-        $this->set_state( $args );
+        parent::__construct( $args );
 		$this->register_actions();
 		
 	}

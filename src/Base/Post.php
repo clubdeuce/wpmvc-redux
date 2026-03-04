@@ -57,6 +57,9 @@ class Post extends Model {
 	 *
 	 * @param string $template_slug Template filename without leading slash; .php is added if omitted.
 	 * @param array  $template_vars Variables to extract into the template scope.
+	 *
+	 * Note: the variable `$item` is automatically injected into the template scope as a
+	 * reference to this model instance, so templates can call `$item->title()` etc.
 	 */
 	public function the_template( string $template_slug, array $template_vars = [] ): void {
 

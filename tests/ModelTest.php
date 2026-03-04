@@ -40,16 +40,11 @@ class ModelTest extends TestCase
 
     public function testSetStatePopulatesProperties(): void
     {
-        $model = new class extends Model {
+        $model = new class( [ 'value' => 99 ] ) extends Model {
             public int $value = 0;
 
             public function ID(): int { return $this->value; }
         };
-
-        // set_state is protected; exercise it via the ID() contract
-        $ref = new \ReflectionMethod( $model, 'set_state' );
-        $ref->setAccessible( true );
-        $ref->invoke( $model, [ 'value' => 99 ] );
 
         $this->assertSame( 99, $model->ID() );
     }

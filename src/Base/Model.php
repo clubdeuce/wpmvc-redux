@@ -9,4 +9,6 @@ namespace Clubdeuce\Wpmvc_Redux\Base;
  */
 abstract class Model extends Base {
 
+    abstract public function ID(): int;
+
 }

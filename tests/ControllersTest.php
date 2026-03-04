@@ -20,7 +20,7 @@ class Post_TypeTest extends TestCase
 
     public function testNullPostTypeDoesNotRegister(): void
     {
-        $controller = new Post_Type();
+        $controller = new class extends Post_Type {};
         $controller->register_post_type();
 
         $this->assertEmpty( $GLOBALS['_registered_post_types'] );
@@ -29,7 +29,7 @@ class Post_TypeTest extends TestCase
     public function testConcretePostTypeRegisters(): void
     {
         $controller = new class extends Post_Type {
-            const POST_TYPE = 'book';
+            const ?string POST_TYPE = 'book';
             protected array $arguments = [ 'public' => true ];
         };
 
@@ -43,7 +43,7 @@ class Post_TypeTest extends TestCase
     public function testSlugReturnsPostType(): void
     {
         $controller = new class extends Post_Type {
-            const POST_TYPE = 'event';
+            const ?string POST_TYPE = 'event';
         };
 
         $this->assertSame( 'event', $controller->slug() );
@@ -51,7 +51,7 @@ class Post_TypeTest extends TestCase
 
     public function testSlugOnBaseClassReturnsEmptyString(): void
     {
-        $controller = new Post_Type();
+        $controller = new class extends Post_Type {};
         $this->assertSame( '', $controller->slug() );
     }
 }
@@ -68,7 +68,7 @@ class TaxonomyTest extends TestCase
 
     public function testNullTaxonomyDoesNotRegister(): void
     {
-        $controller = new Taxonomy();
+        $controller = new class extends Taxonomy {};
         $controller->register_taxonomy();
 
         $this->assertEmpty( $GLOBALS['_registered_taxonomies'] );
@@ -77,7 +77,7 @@ class TaxonomyTest extends TestCase
     public function testConcreteTaxonomyRegisters(): void
     {
         $controller = new class extends Taxonomy {
-            const TAXONOMY = 'genre';
+            const ?string TAXONOMY = 'genre';
             protected array $object_type = [ 'book' ];
             protected array $arguments   = [ 'hierarchical' => true ];
         };
@@ -87,5 +87,20 @@ class TaxonomyTest extends TestCase
         $this->assertArrayHasKey( 'genre', $GLOBALS['_registered_taxonomies'] );
         $this->assertSame( [ 'book' ], $GLOBALS['_registered_taxonomies']['genre']['object_type'] );
         $this->assertTrue( $GLOBALS['_registered_taxonomies']['genre']['args']['hierarchical'] );
+    }
+
+    public function testSlugReturnsTaxonomy(): void
+    {
+        $controller = new class extends Taxonomy {
+            const ?string TAXONOMY = 'genre';
+        };
+
+        $this->assertSame( 'genre', $controller->slug() );
+    }
+
+    public function testSlugOnBaseClassReturnsEmptyString(): void
+    {
+        $controller = new class extends Taxonomy {};
+        $this->assertSame( '', $controller->slug() );
     }
 }

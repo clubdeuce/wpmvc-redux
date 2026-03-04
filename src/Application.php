@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Clubdeuce\Wpmvc_Redux;
 
 use Clubdeuce\Wpmvc_Redux\Base\Base;
+use Clubdeuce\Wpmvc_Redux\Contracts\HasActions;
 use Psr\Container\ContainerInterface;
 
 /**
@@ -24,7 +25,7 @@ class Application extends Base
     {
         parent::__construct( $args );
 
-		if ( method_exists($this, 'add_actions') ) {
+		if ( $this instanceof HasActions ) {
 			$this->add_actions();
 		}
     }
