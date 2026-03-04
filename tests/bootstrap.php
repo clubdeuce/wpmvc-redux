@@ -26,16 +26,26 @@ if ( ! class_exists( 'WP_Post' ) ) {
         public int    $ID            = 0;
         public string $post_title    = '';
         public string $post_content  = '';
-        public string $post_type     = 'post';
+        public string $post_excerpt  = '';
+        public string $post_name     = '';
         public string $post_status   = 'publish';
+        public string $post_type     = 'post';
+        public string $post_date     = '';
+        public string $post_modified = '';
+        public int    $post_parent   = 0;
+        public string $post_author   = '0';
+        public int    $menu_order    = 0;
     }
 }
 
 if ( ! class_exists( 'WP_Term' ) ) {
     class WP_Term {
-        public int $term_id = 0;
-        public string $name = '';
-        public string $slug = '';
-        public string $taxonomy = '';
+        public int    $term_id     = 0;
+        public string $name        = '';
+        public string $slug        = '';
+        public string $taxonomy    = '';
+        public string $description = '';
+        public int    $parent      = 0;
+        public int    $count       = 0;
     }
 }

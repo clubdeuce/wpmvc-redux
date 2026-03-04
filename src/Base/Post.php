@@ -98,6 +98,66 @@ class Post extends Model {
 
     }
 
+    public function title(): string {
+
+        return $this->post->post_title;
+
+    }
+
+    public function slug(): string {
+
+        return $this->post->post_name;
+
+    }
+
+    public function excerpt(): string {
+
+        return $this->post->post_excerpt;
+
+    }
+
+    public function status(): string {
+
+        return $this->post->post_status;
+
+    }
+
+    public function type(): string {
+
+        return $this->post->post_type;
+
+    }
+
+    public function date(): string {
+
+        return $this->post->post_date;
+
+    }
+
+    public function modified(): string {
+
+        return $this->post->post_modified;
+
+    }
+
+    public function parent_id(): int {
+
+        return $this->post->post_parent;
+
+    }
+
+    public function author_id(): int {
+
+        return (int) $this->post->post_author;
+
+    }
+
+    public function menu_order(): int {
+
+        return $this->post->menu_order;
+
+    }
+
     public function get_content_html(): string {
 
         return apply_filters( 'the_content', $this->post->post_content );

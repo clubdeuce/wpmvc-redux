@@ -31,4 +31,40 @@ class Term extends Model {
 
 	}
 
+	public function name(): string {
+
+		return $this->term->name;
+
+	}
+
+	public function slug(): string {
+
+		return $this->term->slug;
+
+	}
+
+	public function taxonomy(): string {
+
+		return $this->term->taxonomy;
+
+	}
+
+	public function description(): string {
+
+		return $this->term->description;
+
+	}
+
+	public function parent_id(): int {
+
+		return $this->term->parent;
+
+	}
+
+	public function count(): int {
+
+		return $this->term->count;
+
+	}
+
 }
