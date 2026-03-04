@@ -7,7 +7,7 @@ namespace Clubdeuce\Wpmvc_Redux\Base;
 /**
  * Term base model.
  */
-class Term extends Base {
+class Term extends Model {
 
 	protected \WP_Term $term;
 
