@@ -8,7 +8,7 @@ use Clubdeuce\Wpmvc_Redux\Base\Base;
 
 class Post_Type extends Base {
 
-	const POST_TYPE = null;
+	const  POST_TYPE = null;
 
 	protected array   $arguments = array();
 

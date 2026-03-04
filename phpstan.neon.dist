@@ -14,6 +14,8 @@ parameters:
       identifier: function.notFound
     - messages:
       - '#unknown class WP_Post#'
+      - '#unknown class WP_Term#'
       - '#invalid type WP_Post#'
-      - '#invalid return type WP_Post#'
+      - '#invalid type WP_Term#'
+      - '#invalid return type WP_Term#'
       identifier: class.notFound
