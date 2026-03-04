@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Clubdeuce\Wpmvc_Redux\Base;
 
 class Base {
 
-    protected function __construct( array $args = array() ) {
+    public function __construct( array $args = array() ) {
 
         $this->set_state( $args );
 

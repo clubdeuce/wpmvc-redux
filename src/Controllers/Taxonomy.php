@@ -52,6 +52,10 @@ class Taxonomy extends Base {
 	 */
 	public function register_taxonomy(): void {
 
+		if ( static::TAXONOMY === null ) {
+			return;
+		}
+
 		register_taxonomy( static::TAXONOMY, $this->object_type(), $this->arguments() );
 
 	}

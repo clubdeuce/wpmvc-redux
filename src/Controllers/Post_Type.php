@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Clubdeuce\Wpmvc_Redux\Controllers;
 
 use Clubdeuce\Wpmvc_Redux\Base\Base;
@@ -37,7 +39,7 @@ class Post_Type extends Base {
 
 	public function slug(): string {
 
-		return $this->slug;
+		return static::POST_TYPE ?? '';
 
 	}
 
@@ -48,8 +50,12 @@ class Post_Type extends Base {
 	 */
 	public function register_post_type(): void {
 
+		if ( static::POST_TYPE === null ) {
+			return;
+		}
+
 		register_post_type( static::POST_TYPE, $this->arguments() );
-		
+
 	}
 
 }

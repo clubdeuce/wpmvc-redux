@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Clubdeuce\Wpmvc_Redux\Tests;
 
 use Clubdeuce\Wpmvc_Redux\Application;

@@ -15,7 +15,7 @@ class Post extends Model {
 
 		$this->post = $post;
 
-        $this->set_state( $args );
+        parent::__construct( $args );
 
 	}
 
@@ -60,7 +60,10 @@ class Post extends Model {
 	 */
 	public function the_template( string $template_slug, array $template_vars = [] ): void {
 
-		$_filename = preg_replace( '#(.+)(\.php)?$#', '$1.php', ltrim( $template_slug, '/' ) );
+		$_filename = ltrim( $template_slug, '/' );
+		if ( substr( $_filename, -4 ) !== '.php' ) {
+			$_filename .= '.php';
+		}
 
 		$locations = array_filter( [
 			get_stylesheet_directory() . '/' . $this->templates_subdir() . '/' . $_filename,

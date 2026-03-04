@@ -11,9 +11,11 @@ class Term extends Model {
 
 	protected \WP_Term $term;
 
-	public function __construct( \WP_Term $term ) {
+	public function __construct( \WP_Term $term, array $args = [] ) {
 
 		$this->term = $term;
+
+		parent::__construct( $args );
 
 	}
 

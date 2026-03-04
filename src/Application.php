@@ -18,8 +18,12 @@ class Application extends Base
      */
     const string VERSION = '1.0.0';
 
-    public function __construct()
+    protected ?ContainerInterface $container = null;
+
+    public function __construct( array $args = [] )
     {
+        parent::__construct( $args );
+
 		if ( method_exists($this, 'add_actions') ) {
 			$this->add_actions();
 		}
@@ -35,7 +39,7 @@ class Application extends Base
         return self::VERSION;
     }
 
-    public function getContainer(): Container
+    public function getContainer(): ?ContainerInterface
     {
         return $this->container;
     }
