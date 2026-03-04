@@ -1,2 +1,55 @@
 parameters:
-	ignoreErrors: []
+	ignoreErrors:
+		-
+			message: '#^Function apply_filters not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: src/Base/Post.php
+
+		-
+			message: '#^Function esc_html not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: src/Base/Post.php
+
+		-
+			message: '#^Function get_stylesheet_directory not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: src/Base/Post.php
+
+		-
+			message: '#^Function get_template_directory not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: src/Base/Post.php
+
+		-
+			message: '#^Function get_the_title not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: src/Base/Post.php
+
+		-
+			message: '#^Method Clubdeuce\\Wpmvc_Redux\\Base\\Term\:\:get_term\(\) has invalid return type WP_Term\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Base/Term.php
+
+		-
+			message: '#^Parameter \$term of method Clubdeuce\\Wpmvc_Redux\\Base\\Term\:\:__construct\(\) has invalid type WP_Term\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Base/Term.php
+
+		-
+			message: '#^Property Clubdeuce\\Wpmvc_Redux\\Base\\Term\:\:\$term has unknown class WP_Term as its type\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Base/Term.php
+
+		-
+			message: '#^Function register_taxonomy not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: src/Controllers/Taxonomy.php
