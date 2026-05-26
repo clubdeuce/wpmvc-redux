@@ -6,6 +6,7 @@ namespace Clubdeuce\Wpmvc_Redux;
 
 use Clubdeuce\Wpmvc_Redux\Base\Base;
 use Clubdeuce\Wpmvc_Redux\Contracts\HasActions;
+use DI\ContainerBuilder;
 use Psr\Container\ContainerInterface;
 
 /**
