@@ -7,7 +7,7 @@ namespace Clubdeuce\Wpmvc_Redux\Controllers;
 use Clubdeuce\Wpmvc_Redux\Base\Base;
 
 abstract class Taxonomy extends Base {
-
+	
 	const ?string TAXONOMY = null;
 
 	protected array $object_type = array();
