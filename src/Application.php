@@ -17,7 +17,7 @@ class Application extends Base
     /**
      * Application version
      */
-    const string VERSION = '1.0.0';
+    const VERSION = '1.0.0';
 
     protected ?ContainerInterface $container = null;
 
